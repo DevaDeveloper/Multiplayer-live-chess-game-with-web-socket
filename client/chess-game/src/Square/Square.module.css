@@ -1,0 +1,16 @@
+.square_white {
+  width: 80px;
+  height: 80px;
+  border: 1px solid red;
+  background: #fff;
+}
+
+.square_black {
+  width: 80px;
+  height: 80px;
+  border: 1px solid red;
+  background: gray;
+}
+.square_selected {
+  background: skyblue;
+}

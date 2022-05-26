@@ -1,0 +1,59 @@
+.board {
+  width: 660px;
+  height: 640px;
+  margin: 0 20px;
+  flex-wrap: wrap;
+  display: flex;
+}
+.row_one,
+.row_two,
+.row_three,
+.row_four,
+.row_five,
+.row_six,
+.row_seven,
+.row_eight {
+  display: flex;
+}
+
+.boardHolder {
+  display: flex;
+  justify-content: center;
+}
+.blackClock {
+  flex: 0 0 10%;
+}
+.blackClock p {
+  border: 1px solid skyblue;
+  border-radius: 50px;
+  min-height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: gray;
+  color: #fff;
+  font-size: 24px;
+}
+.black_ticking,
+.white_ticking {
+  background: rgb(50, 39, 39) !important;
+}
+.whiteClock {
+  flex: 0 0 10%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+.whiteClock p {
+  border: 1px solid skyblue;
+  border-radius: 50px;
+  display: flex;
+  justify-content: center;
+  font-size: 24px;
+  align-items: center;
+  min-height: 60px;
+  min-width: 100px;
+  background: gray;
+  color: #fff;
+  padding: 0 20px;
+}
