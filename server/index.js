@@ -5,6 +5,7 @@ const cors = require("cors");
 const { Server } = require("socket.io");
 const { join } = require("path");
 app.use(cors());
+const instanceOfBoardState = require("./TableConfig");
 
 const server = http.createServer(app);
 
@@ -15,95 +16,17 @@ const io = new Server(server, {
   },
 });
 
-// class BoardState {
-//   constructor() {
-//     this.boardState = [1];
-//     this.currentBoardState = [];
-//   }
-// }
+const boardClass = new instanceOfBoardState();
 
-// const newBoard = new BoardState();
+const { currentBoardState, boardState } = boardClass;
 
-const boardState = [];
-const completeGame = [];
-const currentBoardState = [
-  "c_top",
-  "c_skakac",
-  "c_lovac",
-  "c_dama",
-  "c_kralj",
-  "c_lovac",
-  "c_skakac",
-  "c_top",
-  "c_pijun",
-  "c_pijun",
-  "c_pijun",
-  "c_pijun",
-  "c_pijun",
-  "c_pijun",
-  "c_pijun",
-  "c_pijun",
-  null,
-  null,
-  null,
-  null,
-  null,
-  null,
-  null,
-  null,
-  null,
-  null,
-  null,
-  null,
-  null,
-  null,
-  null,
-  null,
-  null,
-  null,
-  null,
-  null,
-  null,
-  null,
-  null,
-  null,
-  null,
-  null,
-  null,
-  null,
-  null,
-  null,
-  null,
-  null,
-  "B_PIJUN",
-  "B_PIJUN",
-  "B_PIJUN",
-  "B_PIJUN",
-  "B_PIJUN",
-  "B_PIJUN",
-  "B_PIJUN",
-  "B_PIJUN",
-  "B_TOP",
-  "B_SKAKAC",
-  "B_LOVAC",
-  "B_DAMA",
-  "B_KRALJ",
-  "B_LOVAC",
-  "B_SKAKAC",
-  "B_TOP",
-];
-for (let i = 1; i <= 64; i++) {
-  boardState.push({
-    squarePlace: i,
-    selected: false,
-    color: "red",
-    currentBoardState,
-  });
-}
+boardClass.makeInstanceOfTheBoard();
+
+// const completeGame = [];
 
 let whitePlays = true;
-let timeWhite = 3 * 60;
-let timeBlack = 3 * 60;
+let timeWhite = 5 * 60;
+let timeBlack = 5 * 60;
 const connectedUsers = [];
 let joinedUsersCounter = 0;
 
@@ -170,6 +93,8 @@ const changeBoardData = (sqr) => {
         } else if (firstSelectedPiece === "c_dama" && !whitePlays) {
           switchPieces();
         } else if (firstSelectedPiece === "c_kralj" && !whitePlays) {
+          switchPieces();
+        } else if (firstSelectedPiece === "c_top" && !whitePlays) {
           switchPieces();
         } else checkForBoardSelectValidity();
 

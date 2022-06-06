@@ -1,0 +1,83 @@
+module.exports = class BoardState {
+  constructor() {
+    this.boardState = [];
+    this.currentBoardState = [
+      "c_top",
+      "c_skakac",
+      "c_lovac",
+      "c_dama",
+      "c_kralj",
+      "c_lovac",
+      "c_skakac",
+      "c_top",
+      "c_pijun",
+      "c_pijun",
+      "c_pijun",
+      "c_pijun",
+      "c_pijun",
+      "c_pijun",
+      "c_pijun",
+      "c_pijun",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "B_PIJUN",
+      "B_PIJUN",
+      "B_PIJUN",
+      "B_PIJUN",
+      "B_PIJUN",
+      "B_PIJUN",
+      "B_PIJUN",
+      "B_PIJUN",
+      "B_TOP",
+      "B_SKAKAC",
+      "B_LOVAC",
+      "B_DAMA",
+      "B_KRALJ",
+      "B_LOVAC",
+      "B_SKAKAC",
+      "B_TOP",
+    ];
+  }
+
+  makeInstanceOfTheBoard() {
+    for (let i = 1; i <= 64; i++) {
+      this.boardState.push({
+        squarePlace: i,
+        selected: false,
+        color: "red",
+        currentBoardState: this.currentBoardState,
+      });
+    }
+    console.log(this.boardState);
+  }
+};
